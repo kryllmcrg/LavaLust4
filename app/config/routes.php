@@ -44,4 +44,6 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('/', 'Welcome::index');
+// $router->get('/', 'Welcome::index');
+$router->get('/', 'User_Controller::index');
+$router->match('insert', 'User_Controller::insert', 'GET|POST');

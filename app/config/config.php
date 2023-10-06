@@ -91,7 +91,7 @@ $config['base_url'] 				= '';
 | variable to blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
