@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <title>User Management</title>
     <!-- Include Bootstrap CSS and JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -38,12 +38,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">id</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
-                    <th scope="col">Action</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +52,10 @@
                         <td><?= $user['username'] ?></td>
                         <td><?= $user['email'] ?></td>
                         <td><?= $user['password'] ?></td> 
-                        <td><a href="<?= site_url('delete/'. $user['id']);?>" type="button" class="btn btn-danger">Delete</a></td>
-                        <td><a href="<?= site_url('seteditdata/'. $user['id']);?>" type="button" class="btn btn-primary">Edit</a></td>
+                        <td>
+                            <a href="<?= site_url('delete/'. $user['id']);?>" type="button" class="btn btn-danger">Delete</a>
+                            <a href="<?= site_url('seteditdata/'. $user['id']);?>" type="button" class="btn btn-primary">Edit</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
