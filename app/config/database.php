@@ -65,8 +65,7 @@ $database['main'] = array(
     'username'	=> 'root',
     'password'	=> '',
     'database'	=> 'simplecrud',
-    'charset'	=> 'utf-8',
+    'charset'	=> 'utf8',
     'dbprefix'	=> '',
 );
-
 ?>
