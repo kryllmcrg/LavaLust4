@@ -7,28 +7,61 @@
     <!-- Include Bootstrap CSS and JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
-    <!-- Custom CSS for form -->
+
     <style>
-        /* Add custom styles here */
-        .container {
-            max-width: 600px;
-        }
+    /* Container styles */
+    .container {
+        max-width: 600px;
+        background-color: #f0f8ff; /* Light Blue */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
 
-        .mb-3 label {
-            font-weight: bold;
-        }
+    /* Header styles */
+    .mb-4 {
+        text-align: center;
+        font-size: 24px;
+        color: #007bff; /* Blue */
+    }
 
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
+    /* Form styles */
+    .form-label {
+        font-weight: bold;
+        color: #007bff; /* Blue */
+    }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-    </style>
+    .form-control {
+        border: 2px solid #007bff; /* Blue */
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #0056b3; /* Darker Blue */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Blue */
+        border-color: #007bff; /* Blue */
+        color: #fff; /* White */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker Blue */
+        border-color: #0056b3; /* Darker Blue */
+    }
+
+    /* Additional styles for spacing and form elements */
+    .mb-3 {
+        margin-bottom: 20px;
+    }
+
+    .form-text {
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+
 </head>
 <body>
     <div class="container mt-5">
