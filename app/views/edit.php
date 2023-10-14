@@ -64,9 +64,9 @@
 
 </head>
 <body>
-    <div class="container mt-5">
+<div class="container mt-5">
         <h2 class="mb-4">User Edit</h2>
-        <form action="<?= site_url('edit'); ?>" method="post">
+        <form action="<?= site_url('edit'); ?>" method="post" id="editForm">
             <input type="hidden" value="<?= $users['id'];?>" name="id">
             <p class="mb-3">ID: <?= $users['id'];?></p>
             <div class="mb-3">
@@ -74,7 +74,7 @@
                 <input type="text" class="form-control" id="username" name="username" value="<?= $users['username'];?>">
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
+                <label for "email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" name="email" value="<?= $users['email'];?>">
                 <div class="form-text">We'll never share your email with anyone else.</div>
             </div>
@@ -89,5 +89,22 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the form by ID
+            const editForm = document.getElementById("editForm");
+            
+            editForm.addEventListener("submit", function (event) {
+                // Prevent the form from submitting normally
+                event.preventDefault();
+                
+                // Perform any necessary form validation here (e.g., check if data is valid)
+
+                // After validation, you can redirect to the home page
+                window.location.href = "http://localhost/Lavalust4/"; // Replace with the actual URL
+            });
+        });
+    </script>
 </body>
 </html>
