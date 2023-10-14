@@ -12,6 +12,7 @@
         /* Custom styles for the page */
         body {
             background-color: #f8f8f8; /* Light Gray */
+            font-size: 18px;
         }
         .container {
             background-color: #fff; /* White */
@@ -19,17 +20,15 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         .mb-3 label {
             font-weight: bold;
             color: #007bff; /* Blue */
-            font-size: 20px;
         }
         .btn-primary {
             background-color: #007bff; /* Blue */
             border-color: #007bff; /* Blue */
-            font-size: 18px;
-            padding: 10px 20px;
         }
         .btn-primary:hover {
             background-color: #0056b3; /* Darker Blue */
@@ -41,8 +40,7 @@
         }
         .table th, .table td {
             border: 1px solid #ccc;
-            font-size: 18px;
-            padding: 15px;
+            padding: 20px;
         }
         .table th {
             background-color: #007bff; /* Blue */
@@ -52,7 +50,7 @@
             text-align: center;
         }
         .btn-danger, .btn-primary {
-            margin-right: 5px;
+            margin-right: 10px;
         }
         .form-control {
             border: 1px solid #ccc;
@@ -68,23 +66,40 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h2 style="color: #007bff;">User Registration</h2>
+        <h2 style="color: #007bff; font-size: 24px;">User Registration</h2>
         <form action="<?= site_url('insert'); ?>" method="post">
+            <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="cpassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="cpassword" name="cpassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <div class="container mt-5">
-        <h2 style="color: #007bff;">User List</h2>
+    </div>
+
+    <div class="container">
+        <h2 style="color: #007bff; font-size: 24px;">User List</h2>
         <table class="table table-striped">
             <thead>
-                 <tr>
+                <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col">Actions</th>
                 </tr>
-
             </thead>
             <tbody>
                 <?php foreach ($users as $user): ?>
@@ -92,32 +107,12 @@
                         <th scope="row"><?= $user['id'] ?></th>
                         <td><?= $user['username'] ?></td>
                         <td><?= $user['email'] ?></td>
-                        <td><?= $user['password'] ?></td>
+                        <td><?= $user['password'] ?></td> 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#deleteConfirmation<?= $user['id']; ?>" class="btn btn-danger">Delete</a>
+                            <a href="<?= site_url('delete/'. $user['id']);?>" data-id="<?= $user['id']; ?>" class="btn btn-danger delete-user">Delete</a>
                             <a href="<?= site_url('seteditdata/'. $user['id']);?>" type="button" class="btn btn-primary">Edit</a>
                         </td>
                     </tr>
-                    <!-- Delete Confirmation Modal -->
-                    <div class="modal fade" id="deleteConfirmation<?= $user['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteConfirmationLabel">Confirm Deletion</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Are you sure you want to delete this user?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <a href="<?= site_url('delete/'. $user['id']);?>" class="btn btn-danger">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 <?php endforeach; ?>
             </tbody>
         </table>
@@ -146,5 +141,6 @@
         });
     });
 </script>
+
 </body>
 </html>
